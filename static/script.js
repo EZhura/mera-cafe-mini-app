@@ -58,7 +58,7 @@ const translations = {
     hoursLabel: "Opening hours",
     openDailyTime: "Daily · 08:00–20:00",
     contactLabel: "Contact",
-    openMap: "Open map",
+    messageUs: "Message us",
     faqTitle: "Frequently asked questions",
     faqDescription: "Everything you may want to know before your visit.",
     faqReservationQuestion: "Do you accept reservations?",
@@ -148,6 +148,7 @@ const translations = {
     openDailyTime: "Ежедневно · 08:00–20:00",
     contactLabel: "Контакт",
     openMap: "Открыть карту",
+    messageUs: "Написать нам",
     faqTitle: "Частые вопросы",
     faqDescription: "Всё, что может пригодиться перед визитом.",
     faqReservationQuestion: "Можно ли забронировать столик?",
@@ -197,62 +198,338 @@ const translations = {
 const categories = {
   breakfast: {
     image: "/static/images/category-breakfast.jpg",
-    title: { en: "Breakfast", ru: "Завтраки" },
-    items: [
-      { name: "Mera Breakfast", price: "€14", desc: { en: "Eggs, grilled halloumi, avocado, tomato, olives and sourdough.", ru: "Яйца, жареный халуми, авокадо, томаты, оливки и хлеб." }, tags: { en: ["signature", "vegetarian"], ru: ["фирменное", "вегетарианское"] } },
-      { name: "Avocado Sourdough", price: "€11", desc: { en: "Sourdough toast, avocado, poached egg, feta and herbs.", ru: "Хлеб на закваске, авокадо, яйцо пашот, фета и зелень." }, tags: { en: ["vegetarian"], ru: ["вегетарианское"] } },
-      { name: "Greek Yogurt Bowl", price: "€9", desc: { en: "Greek yogurt, fruit, granola, honey and nuts.", ru: "Греческий йогурт, фрукты, гранола, мёд и орехи." }, tags: { en: ["light"], ru: ["лёгкое"] } },
-      { name: "Halloumi Eggs", price: "€12", desc: { en: "Scrambled eggs, grilled halloumi, tomatoes and warm bread.", ru: "Скрэмбл, жареный халуми, томаты и тёплый хлеб." }, tags: { en: ["vegetarian"], ru: ["вегетарианское"] } }
+    title: {
+      en: "Breakfast",
+      ru: "Завтраки"
+    },
+    items: [{
+        name: "Mera Breakfast",
+        price: "€14",
+        desc: {
+          en: "Eggs, grilled halloumi, avocado, tomato, olives and sourdough.",
+          ru: "Яйца, жареный халуми, авокадо, томаты, оливки и хлеб."
+        },
+        tags: {
+          en: ["signature", "vegetarian"],
+          ru: ["фирменное", "вегетарианское"]
+        }
+      },
+      {
+        name: "Avocado Sourdough",
+        price: "€11",
+        desc: {
+          en: "Sourdough toast, avocado, poached egg, feta and herbs.",
+          ru: "Хлеб на закваске, авокадо, яйцо пашот, фета и зелень."
+        },
+        tags: {
+          en: ["vegetarian"],
+          ru: ["вегетарианское"]
+        }
+      },
+      {
+        name: "Greek Yogurt Bowl",
+        price: "€9",
+        desc: {
+          en: "Greek yogurt, fruit, granola, honey and nuts.",
+          ru: "Греческий йогурт, фрукты, гранола, мёд и орехи."
+        },
+        tags: {
+          en: ["light"],
+          ru: ["лёгкое"]
+        }
+      },
+      {
+        name: "Halloumi Eggs",
+        price: "€12",
+        desc: {
+          en: "Scrambled eggs, grilled halloumi, tomatoes and warm bread.",
+          ru: "Скрэмбл, жареный халуми, томаты и тёплый хлеб."
+        },
+        tags: {
+          en: ["vegetarian"],
+          ru: ["вегетарианское"]
+        }
+      }
     ]
   },
   brunch: {
     image: "/static/images/category-brunch.jpg",
-    title: { en: "Brunch", ru: "Бранчи" },
-    items: [
-      { name: "Shakshuka", price: "€13", desc: { en: "Baked eggs, tomatoes, peppers, feta and sourdough.", ru: "Запечённые яйца, томаты, перец, фета и хлеб." }, tags: { en: ["popular", "vegetarian"], ru: ["популярное", "вегетарианское"] } },
-      { name: "Halloumi Croissant", price: "€10", desc: { en: "Butter croissant, grilled halloumi, tomato and herbs.", ru: "Круассан, жареный халуми, томаты и зелень." }, tags: { en: ["vegetarian"], ru: ["вегетарианское"] } },
-      { name: "Salmon Benedict", price: "€15", desc: { en: "Poached eggs, smoked salmon, brioche and hollandaise.", ru: "Яйца пашот, копчёный лосось, бриошь и голландский соус." }, tags: { en: ["guest favourite"], ru: ["выбор гостей"] } },
-      { name: "Chicken Brioche", price: "€13", desc: { en: "Grilled chicken, avocado, greens and lemon herb sauce.", ru: "Курица гриль, авокадо, зелень и лимонно-травяной соус." }, tags: { en: ["high protein"], ru: ["много белка"] } }
+    title: {
+      en: "Brunch",
+      ru: "Бранчи"
+    },
+    items: [{
+        name: "Shakshuka",
+        price: "€13",
+        desc: {
+          en: "Baked eggs, tomatoes, peppers, feta and sourdough.",
+          ru: "Запечённые яйца, томаты, перец, фета и хлеб."
+        },
+        tags: {
+          en: ["popular", "vegetarian"],
+          ru: ["популярное", "вегетарианское"]
+        }
+      },
+      {
+        name: "Halloumi Croissant",
+        price: "€10",
+        desc: {
+          en: "Butter croissant, grilled halloumi, tomato and herbs.",
+          ru: "Круассан, жареный халуми, томаты и зелень."
+        },
+        tags: {
+          en: ["vegetarian"],
+          ru: ["вегетарианское"]
+        }
+      },
+      {
+        name: "Salmon Benedict",
+        price: "€15",
+        desc: {
+          en: "Poached eggs, smoked salmon, brioche and hollandaise.",
+          ru: "Яйца пашот, копчёный лосось, бриошь и голландский соус."
+        },
+        tags: {
+          en: ["guest favourite"],
+          ru: ["выбор гостей"]
+        }
+      },
+      {
+        name: "Chicken Brioche",
+        price: "€13",
+        desc: {
+          en: "Grilled chicken, avocado, greens and lemon herb sauce.",
+          ru: "Курица гриль, авокадо, зелень и лимонно-травяной соус."
+        },
+        tags: {
+          en: ["high protein"],
+          ru: ["много белка"]
+        }
+      }
     ]
   },
   bowls: {
     image: "/static/images/category-bowls-salads.jpg",
-    title: { en: "Bowls & salads", ru: "Боулы и салаты" },
-    items: [
-      { name: "Mediterranean Bowl", price: "€13", desc: { en: "Quinoa, hummus, roasted vegetables, feta and tahini.", ru: "Киноа, хумус, запечённые овощи, фета и тахини." }, tags: { en: ["vegetarian"], ru: ["вегетарианское"] } },
-      { name: "Chicken Herb Bowl", price: "€14", desc: { en: "Grilled chicken, rice, greens, avocado and herbs.", ru: "Курица гриль, рис, зелень, авокадо и травы." }, tags: { en: ["high protein"], ru: ["много белка"] } },
-      { name: "Green Halloumi Salad", price: "€12", desc: { en: "Halloumi, cucumber, greens, avocado and citrus dressing.", ru: "Халуми, огурец, зелень, авокадо и цитрусовая заправка." }, tags: { en: ["vegetarian"], ru: ["вегетарианское"] } },
-      { name: "Salmon Grain Bowl", price: "€16", desc: { en: "Salmon, brown rice, vegetables and yogurt dressing.", ru: "Лосось, бурый рис, овощи и йогуртовая заправка." }, tags: { en: ["balanced"], ru: ["сбалансированное"] } }
+    title: {
+      en: "Bowls & salads",
+      ru: "Боулы и салаты"
+    },
+    items: [{
+        name: "Mediterranean Bowl",
+        price: "€13",
+        desc: {
+          en: "Quinoa, hummus, roasted vegetables, feta and tahini.",
+          ru: "Киноа, хумус, запечённые овощи, фета и тахини."
+        },
+        tags: {
+          en: ["vegetarian"],
+          ru: ["вегетарианское"]
+        }
+      },
+      {
+        name: "Chicken Herb Bowl",
+        price: "€14",
+        desc: {
+          en: "Grilled chicken, rice, greens, avocado and herbs.",
+          ru: "Курица гриль, рис, зелень, авокадо и травы."
+        },
+        tags: {
+          en: ["high protein"],
+          ru: ["много белка"]
+        }
+      },
+      {
+        name: "Green Halloumi Salad",
+        price: "€12",
+        desc: {
+          en: "Halloumi, cucumber, greens, avocado and citrus dressing.",
+          ru: "Халуми, огурец, зелень, авокадо и цитрусовая заправка."
+        },
+        tags: {
+          en: ["vegetarian"],
+          ru: ["вегетарианское"]
+        }
+      },
+      {
+        name: "Salmon Grain Bowl",
+        price: "€16",
+        desc: {
+          en: "Salmon, brown rice, vegetables and yogurt dressing.",
+          ru: "Лосось, бурый рис, овощи и йогуртовая заправка."
+        },
+        tags: {
+          en: ["balanced"],
+          ru: ["сбалансированное"]
+        }
+      }
     ]
   },
   pastries: {
     image: "/static/images/category-pastries.jpg",
-    title: { en: "Pastries", ru: "Выпечка" },
-    items: [
-      { name: "Almond Croissant", price: "€4.50", desc: { en: "Butter croissant with almond cream.", ru: "Сливочный круассан с миндальным кремом." }, tags: { en: ["baked daily"], ru: ["выпекаем ежедневно"] } },
-      { name: "Pistachio Roll", price: "€5", desc: { en: "Flaky pastry with pistachio cream.", ru: "Слоёная выпечка с фисташковым кремом." }, tags: { en: ["popular"], ru: ["популярное"] } },
-      { name: "Basque Cheesecake", price: "€6", desc: { en: "Creamy cheesecake with a caramelised top.", ru: "Нежный чизкейк с карамелизированной корочкой." }, tags: { en: ["guest favourite"], ru: ["выбор гостей"] } },
-      { name: "Lemon Olive Cake", price: "€5.50", desc: { en: "Soft lemon cake with olive oil and citrus glaze.", ru: "Лимонный кекс с оливковым маслом и глазурью." }, tags: { en: ["house made"], ru: ["готовим сами"] } }
+    title: {
+      en: "Pastries",
+      ru: "Выпечка"
+    },
+    items: [{
+        name: "Almond Croissant",
+        price: "€4.50",
+        desc: {
+          en: "Butter croissant with almond cream.",
+          ru: "Сливочный круассан с миндальным кремом."
+        },
+        tags: {
+          en: ["baked daily"],
+          ru: ["выпекаем ежедневно"]
+        }
+      },
+      {
+        name: "Pistachio Roll",
+        price: "€5",
+        desc: {
+          en: "Flaky pastry with pistachio cream.",
+          ru: "Слоёная выпечка с фисташковым кремом."
+        },
+        tags: {
+          en: ["popular"],
+          ru: ["популярное"]
+        }
+      },
+      {
+        name: "Basque Cheesecake",
+        price: "€6",
+        desc: {
+          en: "Creamy cheesecake with a caramelised top.",
+          ru: "Нежный чизкейк с карамелизированной корочкой."
+        },
+        tags: {
+          en: ["guest favourite"],
+          ru: ["выбор гостей"]
+        }
+      },
+      {
+        name: "Lemon Olive Cake",
+        price: "€5.50",
+        desc: {
+          en: "Soft lemon cake with olive oil and citrus glaze.",
+          ru: "Лимонный кекс с оливковым маслом и глазурью."
+        },
+        tags: {
+          en: ["house made"],
+          ru: ["готовим сами"]
+        }
+      }
     ]
   },
   coffee: {
     image: "/static/images/category-coffee.jpg",
-    title: { en: "Coffee", ru: "Кофе" },
-    items: [
-      { name: "Espresso", price: "€2.50", desc: { en: "Double-shot specialty espresso.", ru: "Двойной эспрессо из спешелти-зерна." }, tags: { en: ["specialty"], ru: ["спешелти"] } },
-      { name: "Cappuccino", price: "€4", desc: { en: "Espresso with silky steamed milk.", ru: "Эспрессо с нежным взбитым молоком." }, tags: { en: ["classic"], ru: ["классика"] } },
-      { name: "Flat White", price: "€4.50", desc: { en: "Double espresso with fine-textured milk.", ru: "Двойной эспрессо с молоком тонкой текстуры." }, tags: { en: ["strong"], ru: ["насыщенный"] } },
-      { name: "Iced Latte", price: "€5", desc: { en: "Espresso, milk and ice.", ru: "Эспрессо, молоко и лёд." }, tags: { en: ["cold"], ru: ["холодный"] } }
+    title: {
+      en: "Coffee",
+      ru: "Кофе"
+    },
+    items: [{
+        name: "Espresso",
+        price: "€2.50",
+        desc: {
+          en: "Double-shot specialty espresso.",
+          ru: "Двойной эспрессо из спешелти-зерна."
+        },
+        tags: {
+          en: ["specialty"],
+          ru: ["спешелти"]
+        }
+      },
+      {
+        name: "Cappuccino",
+        price: "€4",
+        desc: {
+          en: "Espresso with silky steamed milk.",
+          ru: "Эспрессо с нежным взбитым молоком."
+        },
+        tags: {
+          en: ["classic"],
+          ru: ["классика"]
+        }
+      },
+      {
+        name: "Flat White",
+        price: "€4.50",
+        desc: {
+          en: "Double espresso with fine-textured milk.",
+          ru: "Двойной эспрессо с молоком тонкой текстуры."
+        },
+        tags: {
+          en: ["strong"],
+          ru: ["насыщенный"]
+        }
+      },
+      {
+        name: "Iced Latte",
+        price: "€5",
+        desc: {
+          en: "Espresso, milk and ice.",
+          ru: "Эспрессо, молоко и лёд."
+        },
+        tags: {
+          en: ["cold"],
+          ru: ["холодный"]
+        }
+      }
     ]
   },
   drinks: {
     image: "/static/images/category-cold-drinks.jpg",
-    title: { en: "Cold drinks", ru: "Холодные напитки" },
-    items: [
-      { name: "Homemade Lemonade", price: "€5", desc: { en: "Lemon, mint, soda and light syrup.", ru: "Лимон, мята, содовая и лёгкий сироп." }, tags: { en: ["refreshing"], ru: ["освежающий"] } },
-      { name: "Matcha Strawberry", price: "€6", desc: { en: "Matcha, milk, strawberry purée and ice.", ru: "Матча, молоко, клубничное пюре и лёд." }, tags: { en: ["popular"], ru: ["популярное"] } },
-      { name: "Fresh Orange Juice", price: "€5", desc: { en: "Freshly squeezed orange juice.", ru: "Свежевыжатый апельсиновый сок." }, tags: { en: ["fresh"], ru: ["свежий"] } },
-      { name: "Cucumber Mint Cooler", price: "€5.50", desc: { en: "Cucumber, mint, lime and sparkling water.", ru: "Огурец, мята, лайм и газированная вода." }, tags: { en: ["zero alcohol"], ru: ["без алкоголя"] } }
+    title: {
+      en: "Cold drinks",
+      ru: "Холодные напитки"
+    },
+    items: [{
+        name: "Homemade Lemonade",
+        price: "€5",
+        desc: {
+          en: "Lemon, mint, soda and light syrup.",
+          ru: "Лимон, мята, содовая и лёгкий сироп."
+        },
+        tags: {
+          en: ["refreshing"],
+          ru: ["освежающий"]
+        }
+      },
+      {
+        name: "Matcha Strawberry",
+        price: "€6",
+        desc: {
+          en: "Matcha, milk, strawberry purée and ice.",
+          ru: "Матча, молоко, клубничное пюре и лёд."
+        },
+        tags: {
+          en: ["popular"],
+          ru: ["популярное"]
+        }
+      },
+      {
+        name: "Fresh Orange Juice",
+        price: "€5",
+        desc: {
+          en: "Freshly squeezed orange juice.",
+          ru: "Свежевыжатый апельсиновый сок."
+        },
+        tags: {
+          en: ["fresh"],
+          ru: ["свежий"]
+        }
+      },
+      {
+        name: "Cucumber Mint Cooler",
+        price: "€5.50",
+        desc: {
+          en: "Cucumber, mint, lime and sparkling water.",
+          ru: "Огурец, мята, лайм и газированная вода."
+        },
+        tags: {
+          en: ["zero alcohol"],
+          ru: ["без алкоголя"]
+        }
+      }
     ]
   }
 };
@@ -322,12 +599,12 @@ function renderMenu(categoryKey) {
 
     return (
       '<article class="menu-item">' +
-        '<div class="menu-item-head">' +
-          "<h3>" + escapeHtml(item.name) + "</h3>" +
-          '<span class="menu-price">' + escapeHtml(item.price) + "</span>" +
-        "</div>" +
-        "<p>" + escapeHtml(item.desc[currentLanguage]) + "</p>" +
-        '<div class="menu-tags">' + tags + "</div>" +
+      '<div class="menu-item-head">' +
+      "<h3>" + escapeHtml(item.name) + "</h3>" +
+      '<span class="menu-price">' + escapeHtml(item.price) + "</span>" +
+      "</div>" +
+      "<p>" + escapeHtml(item.desc[currentLanguage]) + "</p>" +
+      '<div class="menu-tags">' + tags + "</div>" +
       "</article>"
     );
   }).join("");
@@ -340,7 +617,10 @@ function renderMenu(categoryKey) {
 function scrollToSection(id) {
   const section = document.getElementById(id);
   if (section) {
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   }
 }
 
@@ -434,7 +714,9 @@ async function submitReservation(event) {
   try {
     const response = await fetch("/api/reservations", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(payload)
     });
 
@@ -524,7 +806,9 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-window.addEventListener("scroll", updateActiveNav, { passive: true });
+window.addEventListener("scroll", updateActiveNav, {
+  passive: true
+});
 form.addEventListener("submit", submitReservation);
 
 setMinDate();
